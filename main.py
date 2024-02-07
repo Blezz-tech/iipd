@@ -39,6 +39,7 @@ def my_styles(document):
         font.name = "Times New Roman"
         font.size = Pt(14)
 
+
     # Заголовок 1
     if True:
         styles['Heading 1'].delete()
@@ -59,7 +60,8 @@ def my_styles(document):
         font.size = Pt(16)
         font.color.rgb = RGBColor(0,0,0)
         font.bold = True
-    
+
+
     # List Number
     if True:
         ListNumber1 = styles["List Number"]
@@ -67,7 +69,7 @@ def my_styles(document):
         pf = ListNumber1.paragraph_format
         font = ListNumber1.font
 
-        pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
+        # pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
         pf.first_line_indent = Cm(1.25)
         pf.left_indent = 0
         pf.line_spacing = 1.5
@@ -80,6 +82,7 @@ def my_styles(document):
         font.size = Pt(14)
         font.color.rgb = RGBColor(0,0,0)
 
+
     # List Number 2
     if True:
         ListNumber2 = styles["List Number 2"]
@@ -87,8 +90,8 @@ def my_styles(document):
         pf = ListNumber2.paragraph_format
         font = ListNumber2.font
 
-        pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
-        pf.first_line_indent = Cm(1.25)
+        # pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
+        pf.first_line_indent = Cm(1.75)
         pf.left_indent = 0
         pf.line_spacing = 1.5
         pf.right_indent = 0
@@ -100,6 +103,8 @@ def my_styles(document):
         font.size = Pt(14)
         font.color.rgb = RGBColor(0,0,0)
 
+
+    # Image Caption
 
 
     return document
