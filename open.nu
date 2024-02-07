@@ -1,15 +1,14 @@
-let targetDir = "./target/"
-let targetFileName = "Аналитический_отчет.docx"
-let targetFile = $targetDir + $targetFileName
-
 def main [] {
-    echo "Билдится Аналитический_отчет.md"
-    mkdir $targetDir
-    (pandoc $targetFileName
-        -o $targetFile
-        --from markdown
-        --to docx
-        --reference-doc ./custom-reference.docx)
+
+    ls src/*.md | each { |it|
+        print $it.name
+        let name = echo $it.name | path basename | str replace ".md" ".docx" 
+        (pandoc $it.name
+            -o ("target/" + $name)
+            --from markdown
+            --to docx
+            --reference-doc ./custom-reference.docx)
+    }
     
     let os = sys | get host | get name
     match $os {
