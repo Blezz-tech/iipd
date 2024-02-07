@@ -1,6 +1,8 @@
 from docx import Document
-from docx.shared import Cm
+from docx.shared import Cm, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.style import WD_STYLE_TYPE
+
 
 def show_styles():
     document = Document()
@@ -10,21 +12,95 @@ def show_styles():
 
 
 def my_styles(document):
+    # Макет
     section = document.sections[0]
     section.top_margin    = Cm(2)
     section.right_margin  = Cm(1.5)
     section.bottom_margin = Cm(2)
     section.left_margin   = Cm(3)
 
-    styleNormal = document.styles["Normal"]
-    styleNormal.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    styleNormal.paragraph_format.first_line_indent = Cm(1.25)
-    styleNormal.paragraph_format.left_indent = 0
-    styleNormal.paragraph_format.line_spacing = 1.5
-    styleNormal.paragraph_format.right_indent = 0
-    styleNormal.paragraph_format.space_after = 0
-    styleNormal.paragraph_format.space_before = 0
+    styles = document.styles
+
+    # Обычный текст
+    if True:
+        Normal = styles["Normal"]
+
+        pf = Normal.paragraph_format
+        font = Normal.font
+
+        pf.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        pf.first_line_indent = Cm(1.25)
+        pf.left_indent = 0
+        pf.line_spacing = 1.5
+        pf.right_indent = 0
+        pf.space_after = 0
+        pf.space_before = 0
+        
+        font.name = "Times New Roman"
+        font.size = Pt(14)
+
+    # Заголовок 1
+    if True:
+        styles['Heading 1'].delete()
+        Header1 = styles.add_style('Heading 1', WD_STYLE_TYPE.PARAGRAPH)
+
+        pf = Header1.paragraph_format
+        font = Header1.font
+
+        pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
+        pf.first_line_indent = Cm(1.25)
+        pf.left_indent = 0
+        pf.line_spacing = 1.5
+        pf.right_indent = 0
+        pf.space_after = 0
+        pf.space_before = 0
+        
+        font.name = "Times New Roman"
+        font.size = Pt(16)
+        font.color.rgb = RGBColor(0,0,0)
+        font.bold = True
     
+    # List Number
+    if True:
+        ListNumber1 = styles["List Number"]
+
+        pf = ListNumber1.paragraph_format
+        font = ListNumber1.font
+
+        pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
+        pf.first_line_indent = Cm(1.25)
+        pf.left_indent = 0
+        pf.line_spacing = 1.5
+        pf.right_indent = 0
+        pf.space_after = 0
+        pf.space_before = 0
+        pf.tab_stops.add_tab_stop(Cm(2.25))
+        
+        font.name = "Times New Roman"
+        font.size = Pt(14)
+        font.color.rgb = RGBColor(0,0,0)
+
+    # List Number 2
+    if True:
+        ListNumber2 = styles["List Number 2"]
+
+        pf = ListNumber2.paragraph_format
+        font = ListNumber2.font
+
+        pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
+        pf.first_line_indent = Cm(1.25)
+        pf.left_indent = 0
+        pf.line_spacing = 1.5
+        pf.right_indent = 0
+        pf.space_after = 0
+        pf.space_before = 0
+        pf.tab_stops.add_tab_stop(Cm(2.75))
+        
+        font.name = "Times New Roman"
+        font.size = Pt(14)
+        font.color.rgb = RGBColor(0,0,0)
+
+
 
     return document
 
@@ -78,6 +154,12 @@ def introduction(document):
     # document.add_heading("Глава 1. Натуральное описание", level=1)
 
 
+
+
+    document.add_heading("Глава 1. Натуральное описание", level=1)
+    document.add_heading("Глава 1. Натуральное описание", level=1)
+    document.add_heading("Глава 1. Натуральное описание", level=1)
+    document.add_heading("Глава 1. Натуральное описание", level=1)
 
     # document.add_paragraph('ААААААААА')
 
