@@ -127,18 +127,21 @@ def introduction(document):
 
     document.add_paragraph(style="List Number", text="Выбрать тему проекта;")
     document.add_paragraph(style="List Number", text="Распределиться по группам;")
-    document.add_paragraph(style="List Number", text="Определить роли в группе;")
-    document.add_paragraph(style="List Number", text="Установить рабочее расписание:")
+    document.add_paragraph(style="List Number", text="\tОпределить роли в группе;")
+    document.add_paragraph(style="List Number", text="\tУстановить рабочее расписание:")
     document.add_paragraph(style="List Number 2", text="Распределить работу между участниками группы;")
     document.add_paragraph(style="List Number 2", text="Поставить ограничение по времени для выполнения рабочих задач.")
+    
     document.add_paragraph(style="List Number", text="Выбрать источники информации;")
     document.add_paragraph(style="List Number", text="Выбрать инструменты, с помощью которых будет создаваться обучающая игра:")
     document.add_paragraph(style="List Number 2", text="Текстовый редактор;")
     document.add_paragraph(style="List Number 2", text="Фоторедакторы;")
     document.add_paragraph(style="List Number 2", text="Приложения для создания кода;")
     document.add_paragraph(style="List Number 2", text="Общие приложения для работы команды.")
+    
     document.add_paragraph(style="List Number", text="Создать дизайн игры:")
     document.add_paragraph(style="List Number 2", text="Подобрать текстуры и дизайн;")
+    
     document.add_paragraph(style="List Number", text="Написать практическую часть с помощью дополнительных источников информации;")
     document.add_paragraph(style="List Number", text="Реализовать сайт с помощью ранее выполненных задач;")
     document.add_paragraph(style="List Number", text="Ввести конечные правки;")
