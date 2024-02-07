@@ -6,8 +6,10 @@ def main [] {
         (pandoc $it.name
             -o ("target/" + $name)
             --from markdown
-            --to docx
-            --reference-doc ./custom-reference.docx)
+            --to docx+native_numbering
+            --reference-doc ./settings/custom-reference.docx
+            --lua-filter ./settings/pagebreak.lua
+            )
     }
     
     let os = sys | get host | get name
