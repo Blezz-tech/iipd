@@ -1,5 +1,5 @@
 def main [] {
-
+    mkdir target
     ls src/*.md | each { |it|
         print $it.name
         let name = echo $it.name | path basename | str replace ".md" ".docx" 
@@ -14,11 +14,11 @@ def main [] {
     match $os {
         "Linux" => {
             print 'Linux'
-            xdg-open $targetFile
+            xdg-open ./target/Аналитический_отчет.docx
         },
         "Windows" => {
             print 'MS Windows'
-            start $targetFile
+            start ./target/Аналитический_отчет.docx
         },
         _ => {
             print 'Other OS'
