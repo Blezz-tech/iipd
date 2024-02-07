@@ -127,8 +127,8 @@ def introduction(document):
 
     document.add_paragraph(style="List Number", text="Выбрать тему проекта;")
     document.add_paragraph(style="List Number", text="Распределиться по группам;")
-    document.add_paragraph(style="List Number", text="\tОпределить роли в группе;")
-    document.add_paragraph(style="List Number", text="\tУстановить рабочее расписание:")
+    document.add_paragraph(style="List Number", text="Определить роли в группе;")
+    document.add_paragraph(style="List Number", text="Установить рабочее расписание:")
     document.add_paragraph(style="List Number 2", text="Распределить работу между участниками группы;")
     document.add_paragraph(style="List Number 2", text="Поставить ограничение по времени для выполнения рабочих задач.")
     
