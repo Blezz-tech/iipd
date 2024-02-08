@@ -2,7 +2,7 @@ from docx import Document
 from docx.shared import Cm, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.style import WD_STYLE_TYPE
-
+import os
 
 
 
@@ -107,7 +107,8 @@ def my_styles(document):
 
 
 def generateDOCX():
-
+    bashCommand = "nu"
+    os.system(bashCommand)
 
 
     return 
