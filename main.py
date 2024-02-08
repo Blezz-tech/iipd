@@ -4,6 +4,9 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
 from docx.enum.style import WD_STYLE_TYPE
 import os
 
+# Жоско для решения проблемы (см Пояснение_за_код.md)
+from docx.oxml.ns import qn
+
 
 
 def my_styles(document):
@@ -17,7 +20,6 @@ def my_styles(document):
     styles = document.styles
 
     for style in styles:
-        print(style.name)
         match style.name:
             # Обычный текст
             case "Normal":
@@ -35,13 +37,28 @@ def my_styles(document):
                 
                 font.name = "Times New Roman"
                 font.size = Pt(14)
+
+
+            # Основной текст
+            case "Body Text":
+                pf = style.paragraph_format
+
+                pf.space_after =  Pt(0)
+                pf.space_before =  Pt(0)
             
             
             # Заголовок 1
             case "Heading 1":
-                # styles['Heading 1'].delete()
-                # Header1 = styles["Heading 1"]
-                # Header1 = styles.add_style('Heading 1', WD_STYLE_TYPE.PARAGRAPH)
+                
+                font.name = "Times New Roman" # Не работает
+
+                # Жоско для решения проблемы (см Пояснение_за_код.md) 
+                rFonts = style.element.rPr.rFonts
+                rFonts.set(qn("w:asciiTheme"), "Times New Roman")
+                rFonts.set(qn("w:eastAsiaTheme"), "Times New Roman")
+                rFonts.set(qn("w:hAnsiTheme"), "Times New Roman")    # Из всех 4 помагло именно это, но применяю все 4, чтобы наверняка
+                rFonts.set(qn("w:cstheme"), "Times New Roman")
+                # Конец Жоскости
 
                 pf = style.paragraph_format
                 font = style.font
@@ -54,30 +71,28 @@ def my_styles(document):
                 pf.space_after = 0
                 pf.space_before = 0
                 
-                font.name = "Times New Roman"
                 font.size = Pt(16)
                 font.color.rgb = RGBColor(0,0,0)
-                font.bold = True
+                print(font.bold)
 
-    # Compact
-    if True:
-        Compact = styles['Compact']
 
-        pf = Compact.paragraph_format
-        font = Compact.font
+            # Compact
+            case "Heading 1":
+                pf = style.paragraph_format
+                font = style.font
 
-        # pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
-        pf.first_line_indent = Cm(1.25)
-        pf.left_indent = 0
-        pf.line_spacing = 1.5
-        pf.right_indent = 0
-        pf.space_after = 0
-        pf.space_before = 0
-        pf.tab_stops.add_tab_stop(Cm(2.25))
-        
-        font.name = "Times New Roman"
-        font.size = Pt(14)
-        font.color.rgb = RGBColor(0,0,0)
+                # pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
+                pf.first_line_indent = Cm(1.25)
+                pf.left_indent = 0
+                pf.line_spacing = 1.5
+                pf.right_indent = 0
+                pf.space_after = 0
+                pf.space_before = 0
+                pf.tab_stops.add_tab_stop(Cm(2.25))
+                
+                font.name = "Times New Roman"
+                font.size = Pt(14)
+                font.color.rgb = RGBColor(0,0,0)
 
 
     # List Number
