@@ -6,7 +6,7 @@ ls src/*.md | each { |it|
         -o ("target/source.docx")
         --from markdown
         --to docx+native_numbering
-        --reference-doc ./settings/custom-reference.docx
+        # --reference-doc ./settings/custom-reference.docx
         --lua-filter ./settings/pagebreak.lua
         )
 }

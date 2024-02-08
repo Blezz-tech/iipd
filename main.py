@@ -106,18 +106,16 @@ def my_styles(document):
 
 
 
-def generateDOCX():
-    bashCommand = "nu"
-    os.system(bashCommand)
-
-
-    return 
-
+def openDOCX():
+    
+    return ""
 
 def main():
-    document = generateDOCX()
+
+    os.system("nu generate.nu")
+    document = openDOCX()
     # document = my_styles(document)
-    document.save('target.docx')
+    # document.save('target.docx')
 
 
 
