@@ -1,6 +1,6 @@
 from docx import Document
 from docx.shared import Cm, Pt, RGBColor
-from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
 from docx.enum.style import WD_STYLE_TYPE
 import os
 
@@ -16,52 +16,48 @@ def my_styles(document):
 
     styles = document.styles
 
-    # Обычный текст
-    if True:
-        Normal = styles["Normal"]
+    for style in styles:
+        print(style.name)
+        match style.name:
+            # Обычный текст
+            case "Normal":
+                pf = style.paragraph_format
+                font = style.font
 
-        pf = Normal.paragraph_format
-        font = Normal.font
+                pf.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+                pf.first_line_indent = Cm(1.25)
+                pf.left_indent = 0
+                pf.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
+                pf.line_spacing = 1.5
+                pf.right_indent = 0
+                pf.space_after =  Pt(0)
+                pf.space_before =  Pt(0)
+                
+                font.name = "Times New Roman"
+                font.size = Pt(14)
+            
+            
+            # Заголовок 1
+            case "Heading 1":
+                # styles['Heading 1'].delete()
+                # Header1 = styles["Heading 1"]
+                # Header1 = styles.add_style('Heading 1', WD_STYLE_TYPE.PARAGRAPH)
 
-        pf.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-        pf.first_line_indent = Cm(1.25)
-        pf.left_indent = 0
-        pf.line_spacing = 1.5
-        pf.right_indent = 0
-        pf.space_after = 0
-        pf.space_before = 0
-        
-        font.name = "Times New Roman"
-        font.size = Pt(14)
+                pf = style.paragraph_format
+                font = style.font
 
-
-
-    # Заголовок 1
-    if True:
-        Header1 = styles
-        for style in document.styles:
-            if style.name == "Heading 1":
-                Header1 = style
-        
-        # styles['Heading 1'].delete()
-        # Header1 = styles["Heading 1"]
-        # Header1 = styles.add_style('Heading 1', WD_STYLE_TYPE.PARAGRAPH)
-
-        pf = Header1.paragraph_format
-        font = Header1.font
-
-        pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
-        pf.first_line_indent = Cm(1.25)
-        pf.left_indent = 0
-        pf.line_spacing = 1.5
-        pf.right_indent = 0
-        pf.space_after = 0
-        pf.space_before = 0
-        
-        font.name = "Times New Roman"
-        font.size = Pt(16)
-        font.color.rgb = RGBColor(0,0,0)
-        font.bold = True
+                pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
+                pf.first_line_indent = Cm(1.25)
+                pf.left_indent = 0
+                pf.line_spacing = 1.5
+                pf.right_indent = 0
+                pf.space_after = 0
+                pf.space_before = 0
+                
+                font.name = "Times New Roman"
+                font.size = Pt(16)
+                font.color.rgb = RGBColor(0,0,0)
+                font.bold = True
 
     # Compact
     if True:
