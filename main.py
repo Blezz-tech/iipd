@@ -82,7 +82,7 @@ def my_styles(document):
 
 
             # Compact
-            case "Heading 1":
+            case "Compact":
                 pf = style.paragraph_format
                 font = style.font
 
