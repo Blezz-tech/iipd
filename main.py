@@ -20,6 +20,13 @@ def my_styles(document):
     styles = document.styles
 
     for style in styles:
+        if hasattr(style, 'paragraph_format'):
+            print("name:", style.name)
+            # print("paragraph: ", hasattr(style, 'paragraph_format'))
+            # pf = style.paragraph_format
+            # pf.space_after =  Pt(0)
+            # pf.space_before =  Pt(0)
+
         match style.name:
             # Обычный текст
             case "Normal":
@@ -72,7 +79,6 @@ def my_styles(document):
                 font.size = Pt(16)
                 font.color.rgb = RGBColor(0,0,0)
                 font.name = "Times New Roman" # Не работает, Обращаться к Ожскости
-                print(font.bold)
 
 
             # Compact
