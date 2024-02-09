@@ -49,10 +49,8 @@ def my_styles(document):
             
             # Заголовок 1
             case "Heading 1":
-                
-                font.name = "Times New Roman" # Не работает
 
-                # Жоско для решения проблемы (см Пояснение_за_код.md) 
+                # Жоско для решения проблемы (см Пояснение_за_код.md)
                 rFonts = style.element.rPr.rFonts
                 rFonts.set(qn("w:asciiTheme"), "Times New Roman")
                 rFonts.set(qn("w:eastAsiaTheme"), "Times New Roman")
@@ -73,6 +71,7 @@ def my_styles(document):
                 
                 font.size = Pt(16)
                 font.color.rgb = RGBColor(0,0,0)
+                font.name = "Times New Roman" # Не работает, Обращаться к Ожскости
                 print(font.bold)
 
 
