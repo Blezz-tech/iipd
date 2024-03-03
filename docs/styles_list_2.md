@@ -1,0 +1,68 @@
+- Normal
+- Body Text
+- First Paragraph
+- Compact
+- Title
+- Subtitle
+- Author
+- Date
+- Abstract
+- Bibliography
+- Heading 1
+- Heading 2
+- Heading 3
+- Heading 4
+- Heading 5
+- Heading 6
+- Heading 7
+- Heading 8
+- Heading 9
+- Block Text
+- Footnote Text
+- Default Paragraph Font
+- Table
+- Definition Term
+- Definition
+- Caption
+- Table Caption
+- Image Caption
+- Figure
+- Captioned Figure
+- Body Text Char
+- Verbatim Char
+- Section Number
+- Footnote Reference
+- Hyperlink
+- TOC Heading
+- Source Code
+- KeywordTok
+- DataTypeTok
+- DecValTok
+- BaseNTok
+- FloatTok
+- ConstantTok
+- CharTok
+- SpecialCharTok
+- StringTok
+- VerbatimStringTok
+- SpecialStringTok
+- ImportTok
+- CommentTok
+- DocumentationTok
+- AnnotationTok
+- CommentVarTok
+- OtherTok
+- FunctionTok
+- VariableTok
+- ControlFlowTok
+- OperatorTok
+- BuiltInTok
+- ExtensionTok
+- PreprocessorTok
+- AttributeTok
+- RegionMarkerTok
+- InformationTok
+- WarningTok
+- AlertTok
+- ErrorTok
+- NormalTok
